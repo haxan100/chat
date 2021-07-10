@@ -36,6 +36,13 @@ public function getData($u,$p)
 	return $sql = $this->db->get()->row();
 	# code...
 }
+	public function getOnly($u)
+	{
+		$this->db->from('user');
+		$this->db->where('username', $u);
+		return $sql = $this->db->get()->row();
+		# code...
+	}
 	public function getDataById($no)
 	{
 		$this->db->from('user');

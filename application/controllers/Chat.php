@@ -139,7 +139,7 @@ class Chat extends CI_Controller
 		$username = $this->input->post('username');
 		$nama_lengkap = $this->input->post('nama_lengkap');
 		$password = $this->input->post('password');
-		$data = $this->ChatModel->getData($username);
+		$data = $this->ChatModel->getDataOnly($username);
 		if($data!=null){
 			$pesan = "Data Sudah Pernah Ada!";
 			$status = false;
