@@ -36,7 +36,7 @@ public function getData($u,$p)
 	return $sql = $this->db->get()->row();
 	# code...
 }
-	public function getOnly($u)
+	public function getDataOnly($u)
 	{
 		$this->db->from('user');
 		$this->db->where('username', $u);
