@@ -41,7 +41,7 @@
 								<input type="password" class="form-control" id="password">
 							</div>
 
-							<input type="submit" value="Sign In" id="btnLogin" class="btn text-white btn-block btn-primary">
+							<input type="submit" value="Sign Up" id="btnLogin" class="btn text-white btn-block btn-primary">
 							<p class="text">Sudah punya Akun? , <a href="<?= base_url() ?>login" class="link-primary text-center">Signup</a></p>
 
 
