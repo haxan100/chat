@@ -13,4 +13,8 @@ apabila mau di share ke web atau youtube di perbolehkan, asal dengan sumber git 
 https://heyiamhasan.com
 free donasi dengan wa 089602340857 
 atau jika mau modifikasi wa saja
-screenshot ada di folder shreenshoo
+screenshot ada di folder shreenshoot
+
+
+noted: silahkan tambah field / kolom password di tabel user ,
+

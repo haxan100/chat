@@ -48,6 +48,8 @@
 							</div>
 
 							<input type="submit" value="Log In" id="btnLogin" class="btn text-white btn-block btn-primary">
+
+							<p class="text">Belum punya Akun? , <a href="<?= base_url() ?>register" class="link-primary text-center">register</a></p>
 						</div>
 					</div>
 

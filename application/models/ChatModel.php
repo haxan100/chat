@@ -28,10 +28,11 @@ public function TambahChatKeSatu($in)
 		
 	# code...
 }
-public function getData($u)
+public function getData($u,$p)
 {
 	$this->db->from('user');	
 	$this->db->where('username', $u);
+		$this->db->where('password', $p);
 	return $sql = $this->db->get()->row();
 	# code...
 }

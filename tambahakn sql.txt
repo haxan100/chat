@@ -1,0 +1,4 @@
+silahkan tambahkan sql ini untuk membuat field password di tabel user
+
+
+ALTER TABLE `user` ADD `password` VARCHAR(255) NOT NULL AFTER `nama`;

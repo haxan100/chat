@@ -74,7 +74,9 @@ class Chat extends CI_Controller
 	public function process_login()
 	{
 		$username = $this->input->post('username');
-		$data = $this->ChatModel->getData($username);
+		$password = $this->input->post('password');
+		$data = $this->ChatModel->getData($username,md5($password));
+		// var_dump($data);die;
 		if ($data == null) {
 			$pesan = "Maaf, User Tidak Di temukan";
 			$status = false;
