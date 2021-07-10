@@ -42,7 +42,7 @@
 							</div>
 
 							<input type="submit" value="Sign In" id="btnLogin" class="btn text-white btn-block btn-primary">
-							<p class="text">Sudah punya Akun? , <a href="<?= base_url() ?>login" class="link-primary text-center">Login</a></p>
+							<p class="text">Sudah punya Akun? , <a href="<?= base_url() ?>login" class="link-primary text-center">Signup</a></p>
 
 
 
