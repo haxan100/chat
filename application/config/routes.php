@@ -56,5 +56,6 @@ $route['Chat'] = 'Chat';
 $route['menu'] = 'Chat/menu';
 $route['Chat/(:num)'] = 'Chat';
 $route['login'] = 'Chat/login';
+$route['register'] = 'Chat/Register';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

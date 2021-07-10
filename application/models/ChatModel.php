@@ -50,6 +50,10 @@ public function getData($u)
 		return $sql = $this->db->get()->result();
 		# code...
 	}
+	public function Tambah($tabel,$in)
+	{
+		$this->db->insert($tabel, $in);
+	}
                         
                             
                         
