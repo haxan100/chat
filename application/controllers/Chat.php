@@ -109,7 +109,13 @@ class Chat extends CI_Controller
 	}
 	public function menu()
 	{
-		$this->load->view('menu');
+		if ($_SESSION['id_user'] == null) {
+
+			redirect('chat/login', 'refresh');
+		} else {
+				$this->load->view('menu');
+			
+		}
 		# code...
 	}
 	public function GetAllOrang()
