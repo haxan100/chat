@@ -8,6 +8,7 @@
 <?php
 $this->load->view('style');
 $id_user = $_SESSION['id_user'];
+// var_dump($_SESSION);die;
 // var_dump($_SESSION['id_user']);die;
 ?>
 
@@ -20,6 +21,8 @@ $id_user = $_SESSION['id_user'];
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
 <!--Coded With Love By Mutiullah Samim-->
 
 <body>
@@ -34,6 +37,35 @@ $id_user = $_SESSION['id_user'];
 								<span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
 							</div>
 						</div>
+					</div>
+					<div class="card-body contacts_body">
+						<ui class="contacts">
+							<li class="profileku">
+								<div class="d-flex bd-highlight">
+									<div class="img_cont">
+										<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_ku">
+									</div>
+									<div class="user_info_ku">
+										<span><?= $_SESSION['nama'] ?></span>
+									</div>
+									<div class="user_info_ku iconya">
+										<i class="fas fa-cog" style="
+											color: aliceblue;
+											margin-top: 10px;
+										"></i>
+									</div>
+									<div class="user_info_ku iconya">
+										<span class="keluar">
+											<i class="fas fa-sign-out-alt" style="
+											color: aliceblue;
+											margin-top: 10px;
+										"></i>
+										</span>
+
+									</div>
+								</div>
+							</li>
+						</ui>
 					</div>
 					<div class="card-body contacts_body">
 						<ui class="contacts" id="yangAktif">
@@ -126,6 +158,8 @@ $id_user = $_SESSION['id_user'];
 		</div>
 	</div>
 </body>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 	$(document).ready(function() {
 		$('#action_menu_btn').click(function() {
@@ -250,6 +284,48 @@ $id_user = $_SESSION['id_user'];
 		$('.search_btn').click(function(e) {
 			pesan()
 			// scrollToBottom()
+		});
+		$('.keluar').click(function(e) {
+
+			Swal.fire({
+				title: 'Anda Akan Keluar?',
+				text: "Apakah Anda Yakin Akan keluar ? ",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes!'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					$.ajax({
+						type: "post",
+						url: "<?= base_url() ?>/Chat/logout",
+						// data: "data",
+						dataType: "json",
+						success: function(r) {
+							// console.log(r)
+							// return false
+							if (r) {
+								Swal.fire(
+									'success!',
+									r.pesan,
+									'success'
+								)
+								setTimeout(() => {
+									location.href = '<?= base_url() ?>Chat/login';
+								}, 1000);
+							} else {
+								'error!',
+								r.pesan,
+								'error'
+							}
+
+						}
+					});
+
+				}
+			})
+
 		});
 
 

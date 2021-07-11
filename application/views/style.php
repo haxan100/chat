@@ -1,4 +1,18 @@
 <style>
+	.profileku {
+		width: 100% !important;
+		/* padding: 5px 10px; */
+		/* margin-bottom: 15px !important;*/
+		height: 80%;
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	.user_img_ku {
+		height: 40px;
+		width: 40px;
+		border: 1.5px solid #f5f6fa;
+	}
+
 	body,
 	html {
 		height: 100%;
@@ -153,9 +167,26 @@
 		margin-left: 15px;
 	}
 
+	.user_info_ku {
+		/* margin-top: auto; */
+		margin-bottom: auto;
+		margin-left: 15px;
+	}
+
+	.user_info_ku span {
+		font-size: 20px;
+		color: white;
+	}
+
+
 	.user_info span {
 		font-size: 20px;
 		color: white;
+	}
+
+	.user_info_ku p {
+		font-size: 10px;
+		color: rgba(255, 255, 255, 0.6);
 	}
 
 	.user_info p {

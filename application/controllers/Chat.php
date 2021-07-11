@@ -133,6 +133,16 @@ class Chat extends CI_Controller
 	{
 
 		$this->session->sess_destroy();
+			$pesan="Berhasil Keluar, Anda Akan Diarahkan Ke Halaman Login";
+			$status = true;
+		
+
+		echo json_encode(array(
+			'pesan' => $pesan,
+			'status' => $status
+		));
+
+
 
 		# code...
 	}

@@ -49,6 +49,36 @@ $nama = $_SESSION['nama'];
 							</div>
 						</div>
 					</div>
+
+					<div class="card-body contacts_body">
+						<ui class="contacts">
+							<li class="profileku">
+								<div class="d-flex bd-highlight">
+									<div class="img_cont">
+										<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_ku">
+									</div>
+									<div class="user_info_ku">
+										<span><?= $_SESSION['nama'] ?></span>
+									</div>
+									<div class="user_info_ku iconya">
+										<i class="fas fa-cog" style="
+											color: aliceblue;
+											margin-top: 10px;
+										"></i>
+									</div>
+									<div class="user_info_ku iconya">
+										<span class="keluar">
+											<i class="fas fa-sign-out-alt" style="
+											color: aliceblue;
+											margin-top: 10px;
+										"></i>
+										</span>
+
+									</div>
+								</div>
+							</li>
+						</ui>
+					</div>
 					<div class="card-body contacts_body">
 						<ui class="contacts" id="yangAktif">
 							<li class="active">
@@ -104,9 +134,52 @@ $nama = $_SESSION['nama'];
 </body>
 <script>
 </script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
 	$(document).ready(function() {
+		$('.keluar').click(function(e) {
 
+			Swal.fire({
+				title: 'Anda Akan Keluar?',
+				text: "Apakah Anda Yakin Akan keluar ? ",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes!'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					$.ajax({
+						type: "post",
+						url: "<?= base_url() ?>/Chat/logout",
+						// data: "data",
+						dataType: "json",
+						success: function(r) {
+							// console.log(r)
+							// return false
+							if (r) {
+								Swal.fire(
+									'success!',
+									r.pesan,
+									'success'
+								)
+								setTimeout(() => {
+									location.href = '<?= base_url() ?>Chat/login';
+								}, 1000);
+							} else {
+								'error!',
+								r.pesan,
+								'error'
+							}
+
+						}
+					});
+
+				}
+			})
+
+		});
 		orang()
 
 		function orang() {
@@ -143,7 +216,7 @@ $nama = $_SESSION['nama'];
 		}
 		$('body').on('click', '.coba', function() {
 			var id = $(".coba").data('id');
-			window.location.replace("<?=base_url() ?>Chat/"+id);
+			window.location.replace("<?= base_url() ?>Chat/" + id);
 
 		});
 
